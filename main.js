@@ -19,3 +19,10 @@ function buyCoinsPerClick() {
 var mainGameLoop = window.setInterval(function () {
     mineCoins()
 }, 1000)
+var saveGameLoop = window.setInterval(function () {
+    localStorage.setItem("coinsMinerSave", JSON.stringify(gameData))
+}, 15000)
+var savegame = JSON.parse(localStorage.getItem("coinsMinerSave"))
+if (savegame !== null) {
+    gameData = savegame
+}
